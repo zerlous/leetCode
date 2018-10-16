@@ -19,7 +19,7 @@ problems.forEach(function (dirPath) {
     var program = require(programPath);
     var testcases = require(testcasesPath);
     describe(dirName, function () {
-        it('testcases should passed', function () {
+        it('should passed?', function () {
             testcases.forEach(function (testcase) {
                 assert.deepEqual(program.apply(null, testcase.input), testcase.output);
             });
