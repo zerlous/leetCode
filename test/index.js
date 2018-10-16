@@ -10,9 +10,14 @@ var path = require('path');
 var exec = require('child_process').exec;
 var fs = require('fs');
 
-var problems = glob.sync(path.resolve(__dirname, '../problems/*'));
+var config = require('./config');
 
-problems.forEach(function (dirPath) {
+var problems = glob.sync(path.resolve(__dirname, '../problems/*'));
+var units = config.testUnit ? problems.filter(function(path) {
+    return path.indexOf(config.unitNumber) >= 0;
+}) : problems;
+
+units.forEach(function (dirPath) {
     var dirName = path.relative(path.resolve(dirPath, '..'), dirPath);
     var testcasesPath = path.join(dirPath, 'test.js');
     var programPath = path.join(dirPath, 'index.js');
