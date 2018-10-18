@@ -38,6 +38,26 @@
  * @param {number} numRows
  * @return {string}
  */
-var convert = module.exports = function(s, numRows) {
 
+/**
+ * i = 0 PIN
+ * i = 1 AL SI G
+ * i = 2 YA HR
+ * i = 3 P I
+ * */
+var convert = module.exports = function(s, numRows) {
+    if(numRows === 1) return s;
+    var result = '';
+    var len = s.length;
+    var period = numRows * 2 - 2;
+    for (var i = 0; i < numRows; i++ ) {
+        for(var j = 0; j + i < len; j+=period) {
+            result += s[j+i];
+            // 除第一行和最后一行Z型转换转交，其他均有两个值
+            if(i !== 0 && i !== numRows - 1 && j + period - i < len) {
+                result += s[j + period - i];
+            }
+        }
+    }
+    return result;
 };

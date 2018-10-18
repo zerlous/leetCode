@@ -11,5 +11,8 @@ module.exports = [
     },{
         input:['PAYPALISHIRING',4],
         output:'PINALSIGYAHRPI'
+    },{
+        input:['ASDZXXXCCC',1],
+        output:'ASDZXXXCCC'
     }
 ];
