@@ -1,7 +1,7 @@
 /**
  * @Author: zerlous
  * @Date: 2018/10/18
- * @Description:
+ * @Description: 核心问题解决掉*所带来的多种可能性的匹配
  */
 
 /**
@@ -59,7 +59,55 @@
  * @param {string} s
  * @param {string} p
  * @return {boolean}
+ *
  */
 var isMatch = module.exports = function(s, p) {
-
+    return recursion(s,p);
 };
+
+// plan1: 递归
+function recursion(s,p) {
+    // 边界处理
+    var s_len = s.length,
+        p_len = p.length;
+    if (p_len === 0) return s_len === 0;
+    if (p_len === 1) return s_len === 1 && (s[0] === p[0] || p[0] === '.');
+    if (p[1] !== '*') {
+        if (s.length === 0) return false;
+        return (s[0] === p[0] || p[0] === '.') && isMatch(s.substring(1),p.substring(1));
+    } else {
+        while (s.length > 0 && (p[0] === s[0] || p[0] === '.')) {
+            if (isMatch(s, p.substring(2))) return true;
+            s = s.substring(1);
+        }
+        return isMatch(s, p.substring(2));
+    }
+}
+
+// plan2: 匹配模式
+function match(s,p) {
+    var arr_p = p.split('').reduce(function(arr,current){
+        if(current === '*' || current === '.') {
+            arr.push(current,'');
+        } else {
+            arr.push((arr.pop() || '') + current);
+        }
+        return arr;
+    },[]);
+    var arr_p_len = arr_p.length;
+    var match_s = s;
+    var match_s_len;
+    for (var i = 0; i < arr_p_len; i++) {
+        // match_s_len = match_s.length;
+        // if(match_s_len === 0) return false;
+        // if(match_s_len) {
+        //
+        // }
+        // if () {
+        //
+        // }
+        // if (arr_p[i] === '.') {
+        //
+        // }
+    }
+}
