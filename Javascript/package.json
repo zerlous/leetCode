@@ -6,7 +6,7 @@
     "start": "mocha index.js",
     "test": "yarn run lint && mocha --require babel-register src/**/*.test.js",
     "lint": "eslint . && echo 'ESLint Passed. \n'",
-    "fix": "eslint --fix "
+    "fix": "eslint --fix ./**/*.js"
   },
   "main": "index.js",
   "author": "youlifei",
