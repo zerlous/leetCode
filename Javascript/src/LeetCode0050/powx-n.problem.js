@@ -12,25 +12,24 @@
 
 // 累乘
 // T:O(n)  S: O(1)
-const powSimple = function(x, n) {
+const powSimple = function (x, n) {
   let result = 1;
   const N = Math.abs(n);
   for (let i = 0; i < N; ++i)
     result *= x;
-  return n < 0 ? 1/result : result;
+  return n < 0 ? 1 / result : result;
 };
 
 // 进位
 // T:O(log(n))  S: O(1)
 const powFast = function (x, n) {
   let result = 1;
-  let N = Math.abs(n);
-  while (N != 0) {
-    if ((N & 1) == 1) result *= x;
+  const N = Math.abs(n);
+  for (let i = N; i != 0; i = Math.floor(i / 2)) {
+    if (i % 2 != 0) result *= x;
     x *= x;
-    N >>= 1;
   }
-  return n < 0 ? 1/result : result;
+  return n < 0 ? 1 / result : result;
 };
 
 module.exports = {
