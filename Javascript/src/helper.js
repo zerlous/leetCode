@@ -66,7 +66,6 @@ function linkedList2Array(head) {
 }
 
 class Item {
-
   constructor(parent, childVal, isLeft) {
     this.parent = parent;
     this.childVal = childVal;

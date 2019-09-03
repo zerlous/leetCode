@@ -12,4 +12,8 @@ module.exports = [
     input: [buildTree(1,2,2,null,3,null,3)],
     output: false
   },
+  {
+    input: [buildTree(1,2,2,null,3,null,3)],
+    output: false
+  },
 ];
