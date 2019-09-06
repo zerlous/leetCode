@@ -3,10 +3,6 @@
  * 206-反转链表
  反转一个单链表
  */
-const helper = require('../helper');
-const {
-  buildLinkedList,
-} = helper;
 // T:O(n)   S:O(1)
 /**
  * Definition for singly-linked list.

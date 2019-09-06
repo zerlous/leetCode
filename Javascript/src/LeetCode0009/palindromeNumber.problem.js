@@ -25,16 +25,32 @@
  * @param {number} x
  * @return {boolean}
  */
-
-var isPalindrome = module.exports = function(x) {
-  if(x<0) {
-    return false;
-  }
-  var s = x.toString(),i = 0,j = s.length - 1;
-  for (;i<=j;i++,j--) {
-    if (s[i] !== s[j]) {
-      return false;
-    }
+// Time: O(m), Space: O(1)
+const isPalindromeString = (x) => {
+  if (x < 0) return false;
+  let s = x.toString();
+  for (let i = 0, j = s.length - 1; i <= j; i++, j--) {
+    if (s[i] !== s[j]) return false;
   }
   return true;
+};
+
+// Time: O(m), Space: O(1)
+const isPalindrome = (x) => {
+  if (x < 0) return false;
+  let tmp = x;
+  let remainder = tmp % 10;
+  let y = 0;
+  while (tmp != 0 && remainder != 0) {
+    console.log(tmp, remainder)
+    y = y * 10 + remainder;
+    tmp = Math.floor(tmp / 10);
+    remainder = tmp % 10;
+  }
+  return x === y;
+};
+
+module.exports = {
+  isPalindromeString,
+  isPalindrome
 };

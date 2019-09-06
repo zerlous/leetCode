@@ -48,9 +48,7 @@ const countPalindromicSubstringsDP = (s) => {
         isPalindromic[(j + '') + (i + '')] = s[j] === s[i];
       else
         isPalindromic[(j + '') + (i + '')] = s[j] === s[i] && isPalindromic[((j + 1) + '') + ((i - 1) + '')];
-      if (isPalindromic[(j + '') + (i + '')]) {
-        ++count;
-      }
+      if (isPalindromic[(j + '') + (i + '')]) ++count;
       // console.log(j,i,s.substring(j,i+1), isPalindromic[(j+'')+(i+'')])
     }
   }
