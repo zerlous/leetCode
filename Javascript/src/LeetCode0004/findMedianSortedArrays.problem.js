@@ -107,8 +107,6 @@ const findKthSmallestInSortedArrays = (nums1, nums2, k) => {
   }
 };
 
-console.log(findMedianSortedArrays([1, 2], [3, 4]));
-
 module.exports = {
   mergeSort,
   findMedianSortedArrays
