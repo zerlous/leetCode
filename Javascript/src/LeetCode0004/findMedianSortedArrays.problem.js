@@ -29,7 +29,7 @@
  * @return {number}
  */
 // 分治排序
-function mergeSort(nums1,nums2) {
+const mergeSort = (nums1, nums2) => {
   let i = 0;
   let j = 0;
   let result = [];
@@ -57,9 +57,59 @@ function mergeSort(nums1,nums2) {
   }
   let t = result;
   let l = t.length;
-  return l % 2 === 0 ? (t[l/2] + t[l/2 - 1]) / 2 : t[parseInt(l/2)];
+  return l % 2 === 0 ? (t[l / 2] + t[l / 2 - 1]) / 2 : t[parseInt(l / 2)];
 }
 
+
+// T: O(log(m+n))     S:O(1)
+const findMedianSortedArrays = (nums1, nums2) => {
+  const total = nums1.length + nums2.length;
+  if ((total & 1) === 1) {
+    // 奇数取中位数
+    return findKthSmallestInSortedArrays(nums1, nums2, Math.floor(total / 2) + 1);
+  } else {
+    // 偶数取中间两位数的Avg
+    return (findKthSmallestInSortedArrays(nums1, nums2, total / 2) + findKthSmallestInSortedArrays(nums1, nums2, total / 2 + 1)) / 2;
+  }
+};
+/**
+ *
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @param {number} k
+ */
+// [1,2,3]
+// [4,5,6,7]
+const findKthSmallestInSortedArrays = (nums1, nums2, k) => {
+  console.log(k);
+  let len1 = nums1.length, len2 = nums2.length, base1 = 0, base2 = 0;
+  while (true) {
+    if (len1 === 0) return nums2[base2 + k - 1];
+    if (len2 === 0) return nums1[base1 + k - 1];
+    if (k === 1) return Math.min(nums1[base1], nums2[base2]);
+
+    let i = Math.min( Math.floor(k / 2), len1);
+    let j = Math.min( k - i, len2);
+    let a = nums1[base1 + i -1 ], b = nums2[base2 + j - 1];
+
+    if (i + j == k && a===b) return a;
+
+    if ( a <= b) {
+      base1 += i;
+      len1 -= i;
+      k -= i;
+    }
+    if ( a >= b) {
+      base2 += j;
+      len2 -= j;
+      k -= j;
+    }
+  }
+};
+
+console.log(findMedianSortedArrays([1, 2], [3, 4]));
+
 module.exports = {
-  mergeSort
+  mergeSort,
+  findMedianSortedArrays
 };
