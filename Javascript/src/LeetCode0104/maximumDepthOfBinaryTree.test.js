@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 const { maxDepthBFS, maxDepthDFS } = require('./maximumDepthOfBinaryTree.problem');
 const cases = require('./maximumDepthOfBinaryTree.case');
-console.log(expect);
+console.log(describe);
 describe('LeetCode0104 #maximumDepthOfBinaryTree', function() {
   describe('maxDepthBFS Version', function () {
     it('should return success', function () {

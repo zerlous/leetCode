@@ -35,9 +35,9 @@ const maxDepthBFS = (root) => {
 // DFS  T:O(n)  S:O(n)
 const maxDepthDFS = (root) => {
   if (!root) return 0;
-  if (root.left && root.right) return 1 + Math.max( maxDepthDFS(root.left), maxDepthDFS(root.right));
-  else if(root.left) return 1 + maxDepthDFS(root.left);
-  else if(root.right) return 1 + maxDepthDFS(root.right);
+  if (root.left && root.right) return 1 + Math.max(maxDepthDFS(root.left), maxDepthDFS(root.right));
+  else if (root.left) return 1 + maxDepthDFS(root.left);
+  else if (root.right) return 1 + maxDepthDFS(root.right);
   else return 1;
 };
 
