@@ -1,7 +1,6 @@
 const expect = require('chai').expect;
 const { isSymmetricTreeRecursive, isSymmetricTreeIterative } = require('./isSymmetric.problem');
 const cases = require('./isSymmetric.case');
-const helper = require('../helper');
 
 describe('LeetCode0101 #isSymmetric', function() {
   describe('isSymmetricTreeRecursive Version', function () {
