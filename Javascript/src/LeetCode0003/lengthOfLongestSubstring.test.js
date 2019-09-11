@@ -1,5 +1,5 @@
-const { expect } = require('chai');
-const { rulerTake,  bruteForce } = require('./lengthOfLongestSubstring.problem');
+const {expect} = require('chai');
+const {rulerTake, bruteForce} = require('./lengthOfLongestSubstring.problem');
 const cases = require('./lengthOfLongestSubstring.case');
 
 describe('LeetCode0003 #lengthOfLongestSubstring', function () {
